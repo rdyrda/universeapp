@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Orbs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orbs.each do |orb| %>
+      <tr>
+        <td><%= orb.category %></td>
+        <td><%= orb.name %></td>
+        <td><%= orb.description %></td>
+        <td><%= orb.image %></td>
+        <td><%= link_to 'Show', orb %></td>
+        <td><%= link_to 'Edit', edit_orb_path(orb) %></td>
+        <td><%= link_to 'Destroy', orb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Orb', new_orb_path %>
