@@ -1,0 +1,17 @@
+<li id="orb-<%= orb.id %>">
+  <%= link_to gravatar_for(orb.user), orb.user %>
+  <span class="user"><%= link_to orb.user.name, orb.user %></span>
+  <span class="category"><%= orb.category %></span>
+  <span class="name"><%= orb.name %></span>
+  <span class="description">
+    <%= orb.description %>
+    <%= image_tag orb.picture.url if orb.picture? %>
+  </span>
+  <span class="timestamp">
+    Added <%= time_ago_in_words(orb.created_at) %> ago.
+    <% if current_user?(orb.user) %>
+      <%= link_to "delete", orb, method: :delete,
+                                 data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>

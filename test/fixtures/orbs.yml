@@ -1,13 +1,66 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  category: MyString
-  name: MyString
-  description: MyString
-  image: MyString
+  category: "Galaktyka"
+  name: "Droga Mleczna"
+  description: "Galaktyka spiralna z poprzeczką, w której znajduje się m.in. nasz Układ Słoneczny."
+  created_at: <%= 15.minutes.ago %> 
+  user: user1
 
 two:
-  category: MyString
-  name: MyString
-  description: MyString
-  image: MyString
+  category: "Gwiazda"
+  name: "Słońce"
+  description: "Gwiazda centralna Układu Słonecznego, wokół której krąży Ziemia, inne planety tego układu, planety karłowate oraz małe ciała Układu Słonecznego."
+  created_at: <%= 4.years.ago %>
+  user: user1
+
+three:
+  category: "Planeta"
+  name: "Mars"
+  description: "Czwarta według oddalenia od Słońca planeta Układu Słonecznego. Nazwa planety pochodzi od imienia rzymskiego boga wojny – Marsa."
+  created_at: <%= 3.hours.ago %>
+  user: user1
+  
+most_recent:
+  category: "Test"
+  name: "Test"
+  description: "Writing test"
+  created_at: <%= Time.zone.now %>
+  user: user1
+  
+<% 30.times do |n| %>
+orb_<%= n %>:
+  category: <%= Faker::Lorem.word %>
+  name: <%= Faker::Lorem.word %>
+  description: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: user1
+<% end %>
+
+four:
+  category: "Planeta"
+  name: "Jowisz"
+  description: "Piąta w kolejności oddalenia od Słońca i największa planeta Układu Słonecznego."
+  created_at: <%= 4.hours.ago %>
+  user: lana
+  
+five:
+  category: "Planeta"
+  name: "Merkury"
+  description: "najmniejsza i najbliższa Słońcu planeta Układu Słonecznego. Jako planeta wewnętrzna                     znajduje się dla ziemskiego obserwatora zawsze bardzo blisko Słońca, dlatego jest                       trudna do obserwacji."
+  created_at: <%= 2.days.ago %>
+  user: clark
+  
+six:
+  category: "Planeta"
+  name: "Wenus"
+  description: "Druga pod względem odległości od Słońca planeta Układu Słonecznego. Jest trzecim pod                   względem jasności ciałem niebieskim widocznym na niebie, po Słońcu i Księżycu."
+  created_at: <%= 31.minutes.ago %> 
+  user: clark
+  
+seven: 
+  category: "Planeta"
+  name: "Saturn"
+  description: "Ggazowy olbrzym, szósta planeta Układu Słonecznego pod względem oddalenia od Słońca,                   druga po Jowiszu pod względem masy i wielkości."
+  created_at: <%= 52.minutes.ago %> 
+  user: lana

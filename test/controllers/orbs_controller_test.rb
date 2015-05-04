@@ -1,49 +1,34 @@
 require 'test_helper'
 
 class OrbsControllerTest < ActionController::TestCase
-  setup do
+  # test "the truth" do
+  #   assert true
+  # end
+    
+  def setup
     @orb = orbs(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:orbs)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create orb" do
-    assert_difference('Orb.count') do
-      post :create, orb: { category: @orb.category, description: @orb.description, image: @orb.image, name: @orb.name }
+  test "should redirect create when not logged in" do
+    assert_no_difference 'Orb.count' do
+      post :create, orb: { category: "Galaxy", name: "Sth", description: "Something cool" }
     end
-
-    assert_redirected_to orb_path(assigns(:orb))
+    assert_redirected_to login_url
   end
 
-  test "should show orb" do
-    get :show, id: @orb
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @orb
-    assert_response :success
-  end
-
-  test "should update orb" do
-    patch :update, id: @orb, orb: { category: @orb.category, description: @orb.description, image: @orb.image, name: @orb.name }
-    assert_redirected_to orb_path(assigns(:orb))
-  end
-
-  test "should destroy orb" do
-    assert_difference('Orb.count', -1) do
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'Orb.count' do
       delete :destroy, id: @orb
     end
-
-    assert_redirected_to orbs_path
+    assert_redirected_to login_url
+  end
+    
+  test "should redirect destroy for wrong orb" do
+    log_in_as(users(:user1))
+    orb = orbs(:four)
+    assert_no_difference 'Orb.count' do
+      delete :destroy, id: orb
+    end
+    assert_redirected_to root_url
   end
 end
