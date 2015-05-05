@@ -15,7 +15,11 @@ Informacja o projekcie:
 
 Jest to aplikacja, w której użytkownicy po uprzednim zalogowaniu się   
 mogą indywdualnie tworzyć swój własny kosmiczny atlas z wybranymi przez 
-siebie ciałami niebieskimi (opis i/lub zdjęcie). Użytkonicy mogą śledzić 
+siebie ciałami niebieskimi (opis i/lub zdjęcie). Użytkownicy mogą śledzić 
 siebie nawzajem (swoje "nowe nabytki"). 
 
 Aplikacja na zewnętrzny serwer heroku: https://obscure-ocean-9014.herokuapp.com/
+
+Logowanie admina:
+login: admin@reddragon.com
+hasło: reddragon1
